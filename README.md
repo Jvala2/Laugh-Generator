@@ -1,1 +1,2 @@
-# Mystery
+## Funny Jokes
+
