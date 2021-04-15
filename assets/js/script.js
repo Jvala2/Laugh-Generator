@@ -1,3 +1,16 @@
+
+$(document).ready(function() {
+    $('select').formSelect();
+});
+// Joke Api button
+
+document.getElementById("jokeButton").addEventListener("click", function(event) {
+    event.preventDefault();
+    var requestUrl = "https://v2.jokeapi.dev/joke/Any"
+    fetch(requestUrl).then(function(response) {
+        if (!response.ok) {
+            console.log("Error getting url");
+        }
 // Joke Api https://sv443.net/jokeapi/v2/
 
 /* This is the blacklist var area */
@@ -18,8 +31,12 @@ document.getElementById("jokeButton").addEventListener("click",function(event) {
             document.getElementById("joke2").innerHTML=""
         } 
         return response.json();
-}).then(function(data) {
-    console.log(data);
+    }).then(function(data) {
+        console.log(data);
+
+
+    })
+});
 
     /* This part displays the joke */
         if(data.type=="twopart") {
