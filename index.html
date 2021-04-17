@@ -18,75 +18,87 @@
 
 <body>
     <header>
-        <div class="input-field col s12" id="select">
-            <form action="#">
-                <p>
-                    <label>
-                    <input name="group1" type="radio"/>
-                    <span>NSFW</span>
-                    </label>
-                </p>
-                <p>
-                    <label>
-                    <input name="group1" type="radio"/>
-                    <span>Religious</span>
-                  </label>
-                </p>
-                <p>
-                    <label>
-                    <input name="group1" type="radio"/>
-                    <span>Political</span>
-                  </label>
-                </p>
-                <p>
-                    <label>
-                    <input name="group1" type="radio"/>
-                    <span>Racist</span>
-                  </label>
-                </p>
-            </form>
-            <select multiple>
-              <option value="" disabled selected>Categories</option>
-              <option value="1">Programming</option>
-              <option value="2">Dark</option>
-              <option value="4">Pun</option>
-              <option value="5">Spooky</option>
-              <option value="6">Sports</option>
-              <option value="7">Gaming</option>
-              <option value="8">Misc</option>
-            </select>
+    </header>
+
+    <body>
+        <header></header>
+        <main>
+            <div class="container">
+                <!-- Page Content goes here -->
+                <h1>JOKE OF THE DAY</h1>
+                <p class="joke1">Display Joke Here</p>
+                <p class="joke2">Display Joke Here</p>
+                <button class="waves-effect waves-light btn" id="jokeButton">Click for Joke</button>
+            </div>
+        </main>
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn 
+         green darken-1 modal-trigger" href="#demo-modal">
+         Click Here!
+     </a>
+
+        <!-- Modal Structure -->
+        <div id="demo-modal" class="modal">
+            <div class="modal-content">
+                <div class="input-field col s12" id="select">
+                    <select id="filters" multiple>
+                        <option value="" disabled selected>Filters</option>
+                        <option value="Nsfw">NSFW</option>
+                        <option value="Religious">Religious</option>
+                        <option value="Political">Political</option>
+                        <option value="Racist">Racist</option>
+                        <option value="Sexist">Sexist</option>
+                        <option value="Explicit">Explicit</option>
+                      </select>
+                    </select>
+                    <div>
+                        <select id="categories" multiple>
+                        <option value="" disabled selected>Categories</option>
+                        <option value="Programming">Programming</option>
+                        <option value="Dark">Dark</option>
+                        <option value="Pun">Pun</option>
+                        <option value="Spooky">Spooky</option>
+                        <option value="Sports">Sports</option>
+                        <option value="Gaming">Gaming</option>
+                        <option value="Misc">Misc</option>
+                      </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <a href="#!" class="modal-action 
+                    modal-close waves-effect waves-green 
+                    btn green lighten-1">
+                    Close
+                </a>
+            </div>
         </div>
-  </header>
-  <body>
-    <header></header>
-    <main>
-        <div class="container">
-            <!-- Page Content goes here -->
-            <h1>JOKE OF THE DAY</h1>
-            <p class="joke1">Display Joke Here</p>
-            <p class="joke2">Display Joke Here</p>
-            <button class="waves-effect waves-light btn" id="jokeButton">Click for Joke</button>
         </div>
-    </main>
+        <script>
+            $(document).ready(function() {
+                $('.modal').modal();
+            })
+        </script>
+        <!-----------Share button container and icons----------->
+        <footer>
+            <div class="share-btn-container">
+                <a href="#" class="facebook-btn">
+                    <i class="fab fa-facebook"></i>
+                </a>
 
-    <!-----------Share button container and icons----------->
-    <div class="share-btn-container">
-        <a href="#" class="facebook-btn">
-            <i class="fab fa-facebook"></i>
-        </a>
+                <a href="#" class="twitter-btn">
+                    <i class="fab fa-twitter"></i>
+                </a>
 
-        <a href="#" class="twitter-btn">
-            <i class="fab fa-twitter"></i>
-        </a>
-
-        <a href="#" class="reddit-btn">
-            <i class="fab fa-reddit"></i>
-        </a>
-    </div>
-    <footer></footer>
-    <!--JavaScript at end of body for optimized loading-->
-    <script type="text/javascript" src="assets/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
+                <a href="#" class="reddit-btn">
+                    <i class="fab fa-reddit"></i>
+                </a>
+            </div>
+        </footer>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="assets/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </body>
 
 </html>
