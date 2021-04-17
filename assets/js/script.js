@@ -52,6 +52,7 @@ document.getElementById("jokeButton").addEventListener("click",function(event) {
 
 })});
 
+
 /*
 -----------------------------social share links-------------------------------
 Reddit:
