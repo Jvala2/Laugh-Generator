@@ -77,6 +77,7 @@ function init() {
     //this grabs the URL of the current webpage you're on
     let postURL = encodeURI(document.location.href);
     let postTitle = encodeURI("Hey! Check this joke out!");
+    let postContent =
 
     facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postURL}`);
 
