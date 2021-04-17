@@ -6,7 +6,6 @@ $(document).ready(function() {
 /* Click the button to display the joke */
 document.getElementById("jokeButton").addEventListener("click",function(event) {
     event.preventDefault();
-
     var requestUrl="https://v2.jokeapi.dev/joke/"
 
         /*This will detect and filter out jokes that are blacklisted */
@@ -47,6 +46,7 @@ document.getElementById("jokeButton").addEventListener("click",function(event) {
                 document.getElementById("joke1").innerText=oneLineJoke
                 document.getElementById("joke2").innerHTML=""
             }
+            init();
             return;
         });
     }
@@ -83,16 +83,16 @@ const redditBtn = document.querySelector(".reddit-btn");
 function init() {
     //this grabs the URL of the current webpage you're on
    //let postURL = encodeURI(document.location.href);
-    let postTitle = encodeURI("Hey! Check this joke out!");
-    var jokeOutput = document.getElementById("joke1").innerHTML;
-    var jokeOutput2 = document.getElementById("joke2").innerHTML;
-    let postURL = encodeURI(""+jokeOutput+""+jokeOutput2+"");
+   // let postTitle = encodeURI("Hey! Check this joke out!");
+    var jokeOutput = document.getElementById("joke1").textContent;
+    var jokeOutput2 = document.getElementById("joke2").textContent;
+    let postTitle = encodeURI(""+jokeOutput+" "+jokeOutput2+"");
 
-    facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postURL}`);
+  //  facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postURL}`);
 
-    twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postURL}&text=${postTitle}`);
+    twitterBtn.setAttribute("href", `https://twitter.com/share?text=${postTitle}`);
 
-    redditBtn.setAttribute("href", `https://reddit.com/submit?url=${postURL}&title=${postTitle}`);
+  //  redditBtn.setAttribute("href", `https://reddit.com/submit?url=${postURL}&title=${postTitle}`);
 }
 
-init();
+
