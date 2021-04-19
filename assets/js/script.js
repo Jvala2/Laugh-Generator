@@ -1,3 +1,8 @@
+/*------------------DOM Elements-----------------------------*/
+const facebookBtn = document.querySelector(".facebook-btn");
+const twitterBtn = document.querySelector(".twitter-btn");
+const redditBtn = document.querySelector(".reddit-btn");
+
 $(document).ready(function() {
     $('select').formSelect();
 });
@@ -5,7 +10,6 @@ $(document).ready(function() {
 /* Click the button to display the joke */
 document.getElementById("jokeButton").addEventListener("click",function(event) {
     event.preventDefault();
-
     var requestUrl="https://v2.jokeapi.dev/joke/"
 
         /*This will detect and filter out jokes that are blacklisted */
@@ -46,6 +50,7 @@ document.getElementById("jokeButton").addEventListener("click",function(event) {
                 document.getElementById("joke1").innerText=oneLineJoke
                 document.getElementById("joke2").innerHTML=""
             }
+            share();
             return;
         });
     }
@@ -57,6 +62,7 @@ document.getElementById("jokeButton").addEventListener("click",function(event) {
 
 
 /* test */
+
 
 /*
 -----------------------------social share links-------------------------------
@@ -72,22 +78,17 @@ https://www.facebook.com/sharer.php?u=[post-url]
 */
 
 
-/*------------------DOM Elements-----------------------------*/
-const facebookBtn = document.querySelector(".facebook-btn");
-const twitterBtn = document.querySelector(".twitter-btn");
-const redditBtn = document.querySelector(".reddit-btn");
 
-
-function init() {
-    //this grabs the URL of the current webpage you're on
+function share() {
+    var jokeOutput = document.getElementById("joke1").textContent;
+    var jokeOutput2 = document.getElementById("joke2").textContent;
+    //this grabs the URL of the current webpage you're on 
     let postURL = encodeURI(document.location.href);
-    let postTitle = encodeURI("Hey! Check this joke out!");
+    let postTitle = encodeURI(jokeOutput+jokeOutput2);
 
-    facebookBtn.setAttribute("href", `https://www.facebook.com/sharer.php?u=${postURL}`);
+    //console.log(postTitle); 
 
-    twitterBtn.setAttribute("href", `https://twitter.com/share?url=${postURL}&text=${postTitle}`);
-
+    facebookBtn.setAttribute("href", `https://www.facebook.com/sharer/sharer.php?u=${postURL}`);
+    twitterBtn.setAttribute("href", `https://twitter.com/share?url${postURL}&text=${postTitle}`);
     redditBtn.setAttribute("href", `https://reddit.com/submit?url=${postURL}&title=${postTitle}`);
 }
-
-init();
