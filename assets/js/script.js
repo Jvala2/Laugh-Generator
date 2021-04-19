@@ -7,6 +7,7 @@ $(document).ready(function() {
     $('select').formSelect();
 });
 
+
 /* Click the button to display the joke */
 document.getElementById("jokeButton").addEventListener("click",function(event) {
     event.preventDefault();
