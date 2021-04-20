@@ -14,17 +14,23 @@ document.getElementById("jokeButton").addEventListener("click",function(event) {
     var requestUrl="https://v2.jokeapi.dev/joke/"
 
         /*This will detect and filter out jokes that are blacklisted */
-    var nSFW = document.getElementById("filters").value; 
-    var category = document.getElementById("categories").value;
-    if (category) {
+    var ourFilter = $("#filters").val(); 
+    var category = $("#categories").val();
+    console.log(ourFilter)
+    console.log(category)
+    if (category.length > 0) {
         requestUrl = requestUrl+category;
+        console.log(category)
+        console.log(requestUrl)
     } else {
         requestUrl = requestUrl+"Any";
     }
-    if (nSFW) {
-        requestUrl = requestUrl+"?blacklistFlags="+nSFW;
+    if (ourFilter.length > 0) {
+        requestUrl = requestUrl+"?blacklistFlags="+ourFilter;
+        console.log(ourFilter)
+        console.log(requestUrl)
     }
-
+    console.log(requestUrl)
 /* Var request joke api with blacklist */
    // var requestUrl="https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit"
 
