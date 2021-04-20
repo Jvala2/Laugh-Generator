@@ -5,20 +5,20 @@ html {
 .container {
     text-align: center;
 }
-
 .container p {
     font-size: 3rem;
     margin: auto;
     max-height: fit-content;
 }
-
 .filterButton {
     position: fixed;
     top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+.modal,.modal-content {
+    overflow:visible;
+}
 
 /*---------------------Share Buttons-------------------*/
 
