@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Joke Generator</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
 </head>
 
 <body>
@@ -28,14 +27,16 @@
                 <h1>JOKE OF THE DAY</h1>
                 <p id="joke1"></p>
                 <p id="joke2"></p>
-                <button class="waves-effect waves-light btn" id="jokeButton">Click for Joke</button>
             </div>
         </main>
         <!-- Modal Trigger -->
-        <a class="waves-effect waves-light btn 
-         green darken-1 modal-trigger" href="#demo-modal">
-         Click Here for Filters!
-     </a>
+        <div class="filterButton">
+            <a class="waves-effect waves-light btn 
+                green darken-1 modal-trigger" href="#demo-modal">
+                Filters
+            </a>
+            <button class="waves-effect waves-light btn" id="jokeButton">Next Joke</button>
+        </div>
 
         <!-- Modal Structure -->
         <div id="demo-modal" class="modal">
@@ -73,32 +74,33 @@
                 </a>
             </div>
         </div>
-          <script>
+        <script>
             $(document).ready(function() {
                 $('.modal').modal();
             })
         </script>
-  <body>
 
-        <!-----------Share button container and icons----------->
-        <footer>
-            <div class="share-btn-container">
-                <a href="#" class="facebook-btn">
-                    <i class="fab fa-facebook"></i>
-                </a>
+        <body>
 
-                <a href="#" class="twitter-btn">
-                    <i class="fab fa-twitter"></i>
-                </a>
+            <!-----------Share button container and icons----------->
+            <footer>
+                <div class="share-btn-container">
+                    <a href="#" class="facebook-btn">
+                        <i class="fab fa-facebook"></i>
+                    </a>
 
-                <a href="#" class="reddit-btn">
-                    <i class="fab fa-reddit"></i>
-                </a>
-            </div>
-        </footer>
-        <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="assets/js/script.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    </body>
+                    <a href="#" class="twitter-btn">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+
+                    <a href="#" class="reddit-btn">
+                        <i class="fab fa-reddit"></i>
+                    </a>
+                </div>
+            </footer>
+            <!--JavaScript at end of body for optimized loading-->
+            <script type="text/javascript" src="assets/js/script.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        </body>
 
 </html>
