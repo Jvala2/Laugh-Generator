@@ -1,86 +1,128 @@
-html {
-    background-color: rgb(226, 226, 226);
-}
-
-.container {
-    text-align: center;
-}
-
-.container p {
-    font-size: 3rem;
-    margin: auto;
-    max-height: fit-content;
-}
-
-.filterButton {
-    position: fixed;
-    top: 90%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-
-/*---------------------Share Buttons-------------------*/
-
-.share-btn-container {
-    background: white;
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 50%;
-    transform: translateY();
-}
-
-.share-btn-container a i {
-    font-size: 32px;
-}
-
-.share-btn-container a {
-    margin: 12px 0;
-    transition: 500ms;
-}
-
-.share-btn-container a:hover {
-    transform: scale(1.2);
-}
-
-.share-btn-container .fa-facebook {
-    color: #3b5998;
-}
-
-.share-btn-container .fa-twitter {
-    color: #1da1f2;
-}
-
-.share-btn-container .fa-reddit {
-    color: #ff4500;
-}
-
-
-/*--------------------Media Query-----------------*/
-
-@media (max-width: 550px) {
-    .share-btn-container {
-        transform: unset;
-        top: unset;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        flex-direction: row;
-        box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
-        padding: 16px 0;
-        justify-content: center;
+    html {
+        background-color: rgb(255, 255, 255);
     }
-    .share-btn-container a {
-        margin: 0 32px;
+    
+    header {
+        text-align: center;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+        font-size: 4rem;
     }
+    
+    header p {
+        font-size: 1rem;
+        color: rgb(0, 0, 0);
+        font-family: 'Raleway', sans-serif;
+    }
+    
+    .container {
+        background-color: rgb(230, 230, 230);
+        border-radius: 50px;
+        text-align: center;
+        color: rgb(0, 0, 0);
+    }
+    
+    .container p {
+        font-size: 3rem;
+        font-weight: 500;
+        max-height: fit-content;
+    }
+    
+    #joke1,
+    #joke2 {
+        padding: 10%;
+    }
+    
     .filterButton {
-        font-size: 10px;
-        top: 85%;
+        position: fixed;
+        top: 90%;
         left: 50%;
         transform: translate(-50%, -50%);
-        display: flex;
     }
-}
+    
+    .filterButton a {
+        background-color: #37373b !important;
+    }
+    
+    #jokeButton {
+        background-color: rgb(255, 72, 0);
+    }
+    
+    #saveButton {
+        background-color: rgb(25, 152, 202);
+    }
+    
+    .modal,
+    .modal-content {
+        overflow: visible;
+    }
+    
+    #demo-modal {
+        border-radius: 10px;
+    }
+    /*---------------------Share Buttons-------------------*/
+    
+    .share-btn-container {
+        background: white;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        position: fixed;
+        top: 50%;
+        transform: translateY();
+    }
+    
+    .share-btn-container a i {
+        font-size: 32px;
+    }
+    
+    .share-btn-container a {
+        margin: 12px 0;
+        transition: 500ms;
+    }
+    
+    .share-btn-container a:hover {
+        transform: scale(1.2);
+    }
+    
+    .share-btn-container .fa-facebook {
+        color: #3b5998;
+    }
+    
+    .share-btn-container .fa-twitter {
+        color: #188ed8;
+    }
+    
+    .share-btn-container .fa-reddit {
+        color: #ff4500;
+    }
+    /*--------------------Media Query-----------------*/
+    
+    @media (max-width: 550px) {
+        .share-btn-container {
+            transform: unset;
+            top: unset;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            flex-direction: row;
+            box-shadow: 4px 0 8px rgba(0, 0, 0, 0.3);
+            padding: 16px 0;
+            justify-content: center;
+        }
+        .share-btn-container a {
+            margin: 0 32px;
+        }
+        .filterButton {
+            font-size: 10px;
+            top: 88%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+        }
+        .container p {
+            font-size: 2rem;
+            color: rgb(0, 0, 0);
+        }
+    }
