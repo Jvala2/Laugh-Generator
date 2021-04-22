@@ -1,4 +1,4 @@
-# Joke of the Day Joke Generator
+# Laugh Generator
 
 The Joke of the Day Joke Generator was created during the current pandemic because there was not much to laugh about in life. We decided to make a Joke of the day random joke generator that spits out a random joke taken from an open source joke API at the touch of a button. Afterwards, you can share that joke with your friends on Twitter, Reddit and Facebook with the simple touch of another button.
 
