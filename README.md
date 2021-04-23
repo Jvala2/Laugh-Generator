@@ -4,11 +4,20 @@ The Laugh Generator was created during the current pandemic because there was no
 
 Your most recent joke generated for you is saved to Local Storage, so it will still be there in case you accidentally refresh the page.
 
-The Laugh Generator also includes a list of filters and categories that allow you to customize your user experience with only the jokes you want to see. 
+The Laugh Generator also includes a list of filters and categories that allow you to customize your user experience with only the jokes you want to see.
 
-### How to use the Customization Feature:
+
+[The standard Laugh Generator desktop page](./assets/Laugh.png)
+[The Mobile Version of Laugh Generator](./assets/Mobile.png)
+
+
+# How to use the Customization Feature:
+
+[The Desktop Page with the Filters and Categories menu open](./assets/Filters.png)
+[The Mobile Page with the Filters and Categories menu open](./assets/Filtersmobile.png)
 
 ## FILTERS:
+
 
 This list of options is where you can choose to ![NOT] view jokes that may offend you.
 This is a blacklist, so checking the boxes will ![PREVENT] you from seeing jokes in the following categories:
@@ -33,10 +42,10 @@ Christmas: Jokes good for Christmas. Self-explanatory. Check this box if you ![W
 
 ## APIs used:
 
-https://sv443.net/jokeapi/v2/
-https://developer.twitter.com/en/docs/twitter-api
-https://www.reddit.com/dev/api
-https://developers.facebook.com/docs/apis-and-sdks
+[JokeAPI](https://sv443.net/jokeapi/v2/)
+[Twitter](https://developer.twitter.com/en/docs/twitter-api)
+[Reddit](https://www.reddit.com/dev/api)
+[Facebook](https://developers.facebook.com/docs/apis-and-sdks)
 
 
 ## Credits:
@@ -47,4 +56,3 @@ Nelson Rosado
 Joseph Valancy
 Emily Fernandez
 Fernando Zaldivar
-Emanuel Garcia
