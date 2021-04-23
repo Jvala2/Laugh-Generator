@@ -9,6 +9,39 @@ $(document).ready(function() {
     $('select').formSelect();
 });
 
+/* Click the button to display the Meme */
+
+document.getElementById("memeButton").addEventListener("click", function(event) {
+    event.preventDefault();
+    var requestMemeUrl = "https://api.imgflip.com/get_memes"
+
+
+    function getRandomMeme() {
+        fetch(requestMemeUrl).then(function(response) {
+            if(!response.ok) {
+                document.getElementById("joke1").innerText="There was an error retreiving the meme."
+                document.getElementById("joke2").innerHTML=""
+            } 
+            return response.json();
+        }).then(function(data) {
+            console.log(data);
+            /* This part displays the Meme */
+
+            function generateRandomNumber(maxValue) {
+                var randomNumber=Math.random();
+             
+                var result=Math.floor(randomNumber * maxValue);
+                return result;
+
+            
+            }
+            return;
+        });
+    }
+    getRandomMeme();
+    })
+
+    
 /* Click the button to display the joke */
 document.getElementById("jokeButton").addEventListener("click", function(event) {
     event.preventDefault();
@@ -90,12 +123,13 @@ document.getElementById("jokeButton").addEventListener("click", function(event) 
 
     }
 
+   
 function share() {
     var jokeOutput = document.getElementById("joke1").textContent;
     var jokeOutput2 = document.getElementById("joke2").textContent;
     //this grabs the URL of the current webpage you're on 
     let postURL = encodeURI(document.location.href);
-    let postTitle = encodeURI(jokeOutput + jokeOutput2);
+    let postTitle = encodeURI(jokeOutput+" "+jokeOutput2);
 
     //console.log(postTitle); 
 
@@ -116,4 +150,3 @@ Facebook:
 https://www.facebook.com/sharer.php?u=[post-url]
 
 */
-
