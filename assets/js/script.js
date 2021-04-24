@@ -27,9 +27,9 @@ document.getElementById("memeButton").addEventListener("click", function(event) 
             console.log(data);
             /* This part displays the Meme */
             var memeLink=data.preview[2];
-                document.getElementById("joke1").innerText="";
+                document.getElementById("joke1").innerHTML=`<img src="${memeLink}"/>`;
                 document.getElementById("joke2").innerHTML="";
-                document.getElementById("meme").innerHTML=memeLink;
+               
             
             return;
         });
