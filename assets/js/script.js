@@ -13,19 +13,18 @@ $(document).ready(function() {
 
 document.getElementById("memeButton").addEventListener("click", function(event) {
     event.preventDefault();
-
+    var requestMemeUrl = "https://meme-api.herokuapp.com/gimme"
+    getRandomMeme();
 
     let fetchDataFromApi = async function() {
         let response = await fetch('https://meme-api.herokuapp.com/gimme');
         let results = await response.json();
-        if(results.nsfw){
+        if (results.nsfw) {
             console.log("Results are nsfw")
             return fetchDataFromApi('https://meme-api.herokuapp.com/gimme'); 
-        }else{
+        } else {
             return results; 
-        }
-
-    var requestMemeUrl = "https://meme-api.herokuapp.com/gimme"
+        }}
 
 
     function getRandomMeme() {
@@ -41,13 +40,14 @@ document.getElementById("memeButton").addEventListener("click", function(event) 
             var memeLink=data.preview[2];
                 document.getElementById("joke1").innerHTML=`<img src="${memeLink}"/>`;
                 document.getElementById("joke2").innerHTML="";
-               
-            
             return;
-        });
+            }
+        );
+    }   
+}
+);
 
-})
-/* Click the button to display the joke */
+/*----------------------------------------------- Click the button to display the joke------------------------------------------------ */
 document.getElementById("jokeButton").addEventListener("click", function(event) {
     event.preventDefault();
     var requestUrl = "https://v2.jokeapi.dev/joke/"
