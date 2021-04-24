@@ -45,8 +45,8 @@ document.getElementById("memeButton").addEventListener("click", function(event) 
             
             return;
         });
-
 })
+
 /* Click the button to display the joke */
 document.getElementById("jokeButton").addEventListener("click", function(event) {
     event.preventDefault();
