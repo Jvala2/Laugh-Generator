@@ -11,41 +11,31 @@ $(document).ready(function() {
 
 /* Click the button to display the Meme */
 
-document.getElementById("memeButton").addEventListener("click", function(event) {
-    event.preventDefault();
-    var requestMemeUrl = "https://meme-api.herokuapp.com/gimme"
-    getRandomMeme();
-
-    let fetchDataFromApi = async function() {
-        let response = await fetch('https://meme-api.herokuapp.com/gimme');
-        let results = await response.json();
-        if (results.nsfw) {
-            console.log("Results are nsfw")
-            return fetchDataFromApi('https://meme-api.herokuapp.com/gimme'); 
-        } else {
-            return results; 
-        }}
-
-
-    function getRandomMeme() {
-        fetch(requestMemeUrl).then(function(response) {
-            if(!response.ok) {
-                document.getElementById("joke1").innerText="There was an error retreiving the meme."
-                document.getElementById("joke2").innerHTML=""
-            } 
-            return response.json();
-        }).then(function(data) {
-            console.log(data);
-            /* This part displays the Meme */
-            var memeLink=data.preview[2];
-                document.getElementById("joke1").innerHTML=`<img src="${memeLink}"/>`;
-                document.getElementById("joke2").innerHTML="";
-            return;
+    document.getElementById("memeButton").addEventListener("click", function(event) {
+        event.preventDefault();
+    
+        let fetchDataFromApi = async function() {
+            let response = await fetch('https://meme-api.herokuapp.com/gimme');
+            let results = await response.json();
+            if(results.nsfw){
+                console.log("Results are nsfw")
+                return fetchDataFromApi('https://meme-api.herokuapp.com/gimme'); 
+            }else{
+                return results; 
             }
-        );
-    }   
-}
-);
+        }
+        fetchDataFromApi().then((data) => {
+            console.log(data)
+            var memeLink=data.preview[2];
+            document.getElementById("joke1").innerHTML=`<img src="${memeLink}"/>`;
+            document.getElementById("joke2").innerHTML="";
+            localStorage.setItem("setup", "");
+            localStorage.setItem("delivery", "");
+            localStorage.setItem("joke", "");
+            localStorage.setItem("memePic", memeLink);
+        })
+      
+    });
 
 /*----------------------------------------------- Click the button to display the joke------------------------------------------------ */
 document.getElementById("jokeButton").addEventListener("click", function(event) {
