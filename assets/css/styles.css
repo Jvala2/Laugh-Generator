@@ -47,11 +47,11 @@
     #jokeButton {
         background-color: rgb(255, 72, 0);
     }
-    
+    /*
     #saveButton {
         background-color: rgb(25, 152, 202);
     }
-    
+    */
     .modal,
     .modal-content {
         overflow: visible;

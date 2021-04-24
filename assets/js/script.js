@@ -13,35 +13,29 @@ $(document).ready(function() {
 
 document.getElementById("memeButton").addEventListener("click", function(event) {
     event.preventDefault();
-    var requestMemeUrl = "https://api.imgflip.com/get_memes"
 
-
-    function getRandomMeme() {
-        fetch(requestMemeUrl).then(function(response) {
-            if(!response.ok) {
-                document.getElementById("joke1").innerText="There was an error retreiving the meme."
-                document.getElementById("joke2").innerHTML=""
-            } 
-            return response.json();
-        }).then(function(data) {
-            console.log(data);
-            /* This part displays the Meme */
-
-            function generateRandomNumber(maxValue) {
-                var randomNumber=Math.random();
-             
-                var result=Math.floor(randomNumber * maxValue);
-                return result;
-
-            
-            }
-            return;
-        });
+    let fetchDataFromApi = async function() {
+        let response = await fetch('https://meme-api.herokuapp.com/gimme');
+        let results = await response.json();
+        if(results.nsfw){
+            console.log("Results are nsfw")
+            return fetchDataFromApi('https://meme-api.herokuapp.com/gimme'); 
+        }else{
+            return results; 
+        }
     }
-    getRandomMeme();
+    fetchDataFromApi().then((data) => {
+        console.log(data)
+        var memeLink=data.preview[2];
+        document.getElementById("joke1").innerHTML=`<img src="${memeLink}"/>`;
+        document.getElementById("joke2").innerHTML="";
+        localStorage.setItem("setup", "");
+        localStorage.setItem("delivery", "");
+        localStorage.setItem("joke", "");
+        localStorage.setItem("memePic", memeLink);
     })
 
-    
+})
 /* Click the button to display the joke */
 document.getElementById("jokeButton").addEventListener("click", function(event) {
     event.preventDefault();
@@ -69,9 +63,6 @@ document.getElementById("jokeButton").addEventListener("click", function(event) 
         // var requestUrl="https://v2.jokeapi.dev/joke/Any?blacklistFlags=nsfw,religious,political,racist,sexist,explicit"
 
 
-
-
-
     function getRandomJoke() {
         fetch(requestUrl).then(function(response) {
             if(!response.ok) {
@@ -89,6 +80,8 @@ document.getElementById("jokeButton").addEventListener("click", function(event) 
                 document.getElementById("joke2").innerText=jokeDelivery;
                 localStorage.setItem("setup", jokeSetup);
                 localStorage.setItem("delivery", jokeDelivery);
+                localStorage.setItem("joke", "");
+                localStorage.setItem("memePic", "");
             } else {
                 var oneLineJoke=data.joke
                 document.getElementById("joke1").innerText=oneLineJoke;
@@ -97,6 +90,7 @@ document.getElementById("jokeButton").addEventListener("click", function(event) 
                 localStorage.setItem("setup", "");
                 localStorage.setItem("delivery", "");
                 localStorage.setItem("joke", oneLineJoke);
+                localStorage.setItem("memePic", "");
             }
             return;
         });
@@ -111,12 +105,16 @@ document.getElementById("jokeButton").addEventListener("click", function(event) 
         let lineOne = localStorage.getItem("setup");
         let lineTwo = localStorage.getItem("delivery");
         let oneLiner = localStorage.getItem("joke");
+        let meme = localStorage.getItem("memePic");
 
         if (lineOne && lineTwo) {
             document.getElementById("joke1").textContent = lineOne;
             document.getElementById("joke2").textContent = lineTwo;
-        } else {
+        } else if (oneLiner){
             document.getElementById("joke1").innerText = oneLiner;
+            document.getElementById("joke2").innerHTML = "";
+        } else {
+            document.getElementById("joke1").innerHTML = `<img src="${meme}"/>`;
             document.getElementById("joke2").innerHTML = "";
         }
 
@@ -125,11 +123,13 @@ document.getElementById("jokeButton").addEventListener("click", function(event) 
 
    
 function share() {
-    var jokeOutput = document.getElementById("joke1").textContent;
-    var jokeOutput2 = document.getElementById("joke2").textContent;
+    var jokeOutput = localStorage.getItem("setup");
+    var jokeOutput2 = localStorage.getItem("delivery");
+    var jokeOutput3 = localStorage.getItem("joke");
+    var jokeOutput4 = localStorage.getItem("memePic");
     //this grabs the URL of the current webpage you're on 
     let postURL = encodeURI(document.location.href);
-    let postTitle = encodeURI(jokeOutput+" "+jokeOutput2);
+    let postTitle = encodeURI(jokeOutput+" "+jokeOutput2 + jokeOutput3 + jokeOutput4);
 
     //console.log(postTitle); 
 
@@ -142,11 +142,8 @@ function share() {
 -----------------------------social share links-------------------------------
 Reddit:
 https://reddit.com/submit?url=[post-url]&title=[post-title]
-
 Twitter:
 https://twitter.com/share?url=[post-url]&text=[post-title]&via=[via]&hashtags=[hashtags]
-
 Facebook:
 https://www.facebook.com/sharer.php?u=[post-url]
-
 */

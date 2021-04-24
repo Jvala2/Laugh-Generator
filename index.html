@@ -29,7 +29,6 @@
                 <!-- Page Content goes here -->
                 <p id="joke1"></p>
                 <p id="joke2"></p>
-                <img id="meme"></img>
             </div>
         </main>
         <!-- Modal Trigger -->
@@ -38,9 +37,9 @@
                 green darken-1 modal-trigger" href="#demo-modal">
                 Filters
             </a>
-            <button class="waves-effect waves-light btn" id="jokeButton">Next Joke</button>
-            <button class="waves-effect waves-light btn" id="memeButton">Next Meme</button>
-            <button class="waves-effect waves-light btn" id="saveButton">Save</button>
+            <button class="waves-effect waves-light btn" id="jokeButton">Joke</button>
+            <button class="waves-effect waves-light btn" id="memeButton">Meme</button>
+<!--           <button class="waves-effect waves-light btn" id="saveButton">Save</button> -->
         </div>
 
         <!-- Modal Structure -->
@@ -48,7 +47,7 @@
             <div class="modal-content">
                 <div class="input-field col s12" id="select">
                     <select id="filters" multiple>
-                        <option value="" disabled selected>Filters</option>
+                        <option value="" disabled selected>Filters (Do NOT want)</option>
                         <option value="nsfw">NSFW</option>
                         <option value="religious">Religious</option>
                         <option value="political">Political</option>
@@ -59,7 +58,7 @@
                     </select>
                     <div>
                         <select id="categories" multiple>
-                        <option value="" disabled selected>Categories</option>
+                        <option value="" disabled selected>Categories (DO want)</option>
                         <option value="Programming">Programming</option>
                         <option value="Misc">Misc</option>
                         <option value="Dark">Dark</option>
